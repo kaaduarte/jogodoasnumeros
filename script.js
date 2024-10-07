@@ -12,6 +12,8 @@ function gerarNumeroAleatorio() {
 function verificarPalpite(palpite) {
     return new Promise((resolve, reject) => {
         tentativas++;
-        
+        if (palpite < 1 || palpite > 100) {
+            reject
+        }
     });
 }
