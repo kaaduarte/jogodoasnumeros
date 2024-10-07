@@ -16,10 +16,22 @@ function verificarPalpite(palpite) {
             reject("Por favor, digite um número de 1 a 100.");
         } else if (paplpite === numeroSecreto) {
             resolve("Parabéns, você acertou o número!");
-        } else if(palpite <numeroSecreto) {
+        } else if (palpite < numeroSecreto) {
             resolve("Muito baixo! Tente novamente.");
-        } else{
+        } else {
             resolve("Muito alto! Tente novamente.");
         }
     });
 }
+
+async function iniciarJogo() {
+    await gerarNumeroAleatorio();
+
+    const botaoEnviar = document.getElementById("enviar");
+    const inputPalpite = document.getElementById("palpite");
+    const resultado = document.getElementById("resultado");
+    
+}
+
+// Inicia o jogo ao carregar a página
+window.onload = iniciarJogo;
