@@ -18,6 +18,8 @@ function verificarPalpite(palpite) {
             resolve("Parabéns, você acertou o número!");
         } else if(palpite <numeroSecreto) {
             resolve("Muito baixo! Tente novamente.");
+        } else{
+            resolve("Muito alto! Tente novamente.");
         }
     });
 }
