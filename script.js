@@ -13,7 +13,9 @@ function verificarPalpite(palpite) {
     return new Promise((resolve, reject) => {
         tentativas++;
         if (palpite < 1 || palpite > 100) {
-            reject
+            reject("Por favor, digite um número de 1 a 100.");
+        } else if (paplpite === numeroSecreto) {
+            resolve("Parabéns, você acertou o número!");
         }
     });
 }
