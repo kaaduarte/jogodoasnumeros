@@ -9,4 +9,7 @@ body {
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
+    background: white;
+    border-radius: 5px;
+    
 }
