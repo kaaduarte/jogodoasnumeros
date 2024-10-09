@@ -26,11 +26,32 @@ function verificarPalpite(palpite) {
 
 async function iniciarJogo() {
     await gerarNumeroAleatorio();
-
     const botaoEnviar = document.getElementById("enviar");
     const inputPalpite = document.getElementById("palpite");
     const resultado = document.getElementById("resultado");
-    
+    const tentativasDisplay = document.getElementById("tentativas");
+
+    botaoEnviar.addEventListener("click", async () => {
+        try {
+            const palpite = parseInt(inputPalpite.value);
+            const mensagem = await verificarPalpite(palpite);
+            resultado.textContent = mensagem;
+            tentativasDisplay.textContent = `Tentativas: ${tentativas}`;
+
+            // limpa o campo do palpite
+            inputPalpite.value = "";
+
+            // reinicia o jogo se o usuário acertar
+            if (mensagem.includes("acertou")) {
+                tentativas = 0;
+                resultado.textContent += "O jogo será reiniciado!";
+                await gerarNumeroAleatorio();
+                tentativasDisplay.textContent = "";
+            }
+        } catch (erro) {
+            resultado.textContent = erro;
+        }
+    });
 }
 
 // Inicia o jogo ao carregar a página
